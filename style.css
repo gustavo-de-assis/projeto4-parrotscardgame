@@ -40,10 +40,27 @@ body{
     width: 117px;
     height: 146px;
     
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     background-color: #A7E9AF;
     
     border: 1px solid #75B79E;
     border-radius: 5px;
 
     margin: 17px;
+
+    transition: all 500ms linear;
+}
+
+.carta img{
+    width: 100px;
+
+    margin: auto;
+}
+
+.carta-virada{
+    background-color: coral;
+    transform: rotatey(180deg);
 }
