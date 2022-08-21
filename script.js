@@ -1,10 +1,20 @@
 let qtdCartas;
 let cartas = [];
+
+let clicados = [];
+
 function virarCarta(elemento){
-    elemento.classList.add("carta-virada");
+    const frente = elemento.querySelector(".frente");
+    const verso = elemento.querySelector(".verso");
+    
+    elemento.classList.toggle("carta-virada");
+
+    
+    frente.classList.toggle("escondido");
+    verso.classList.toggle("escondido");
 
 }
-
+/*
 function insereCartas(){
     
     qtdCartas = Number(prompt("Com quantas cartas voce gostaria de jogar? (numero par entre 4 e 14)"));
@@ -26,8 +36,13 @@ function insereCartas(){
 
         for (let i = 0; i < qtdCartas; i++) {
             elemento.innerHTML += `
-            <div class="cartas ${'carta'+cartas[i]}" onclick="virarCarta(this)">
-            <img src="./img/front.png" />
+            <div class="cartas" onclick="virarCarta(this)">
+                <div class="face frente">
+                    <img src="./img/front.png" />
+                </div>
+                <div class="face verso escondido">
+                    <img class="${cartas[i]}" src="./img/${'carta'+cartas[i]}.gif" />
+                </div>
             </div>
             `;
           }
@@ -36,5 +51,22 @@ function insereCartas(){
 
 }
 
+function checaCartas(){
+    let carta1 = clicados[0].parentNode; 
+    let carta2 = clicados[1].parentNode;
+    
+    if(clicados[0].innerHTML === clicados[1].innerHTML){
+            console.log('acertou miserávi!');
+            clicados = [];
+        }
+        else{
+            
+        }
+
+        clicados = [];
+
+}
+
+
 insereCartas();
-console.log(qtdCartas);
+*/

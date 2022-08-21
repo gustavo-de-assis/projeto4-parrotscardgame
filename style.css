@@ -36,31 +36,52 @@ body{
     
 }
 
-.cartas{
+.carta{
+    aspect-ratio: 0.8;
     width: 117px;
-    height: 146px;
-    
+    background-color: #A7E9AF;
+
     display: flex;
     justify-content: center;
     align-items: center;
 
-    background-color: #A7E9AF;
-    
     border: 1px solid #75B79E;
     border-radius: 5px;
-
-    margin: 17px;
-
     transition: all 500ms linear;
+    transform-style: preserve-3d;
 }
 
-.cartas img{
+.face{
     width: 100px;
+    height: 100px;
 
     margin: auto;
+    position: relative;
+
+    background-size: cover;
+    background-position: center;
+}
+
+.frente{
+    position: absolute;
+}
+
+.verso{
+    background-image: url('./img/front.png');
+    backface-visibility: hidden;
+    position: absolute;
+}
+
+img{
+    width: 100%;
+    align-self: center;
+    transform: rotateY(180deg);
 }
 
 .carta-virada{
-    background-color: coral;
     transform: rotatey(180deg);
+}
+
+.escondido{
+    display: none;
 }
