@@ -22,10 +22,23 @@ body{
     font-family: 'Roboto', sans-serif;
     font-size: 56px;
     font-weight: 700;
-
+    
     color: #75B79E;
     
     margin: 40px auto; 
+}
+
+.tempo{
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    font-weight: 500;
+
+    position: absolute;
+    z-index: 1;
+    top: 100px;
+    right: 20px;
+    margin: 10px;
 }
 
 .jogo{
@@ -104,9 +117,24 @@ img{
     }
     
 }
+@media (max-width: 370px){
+    .tempo{
+        font-size: 20px;
+    
+        top: 150px;
+        right: 30px;
+    }
+}
 
 @media (max-width: 335px){
     
+    .tempo{
+        font-size: 18px;
+
+        top: 100px;
+        right: 30px;
+    }
+
     .titulo h1{
         font-size: 36px;
     }

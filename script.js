@@ -5,9 +5,14 @@ let checaAcertos = 0;
 let numJogadas = 0;
 let clicados = [];
 
+let segundos = 0;
+let minutos = 0;
+let id;
+
 let jogarNovamente = '';
 
 const divjogo = document.querySelector(".jogo");
+const divtempo = document.querySelector(".tempo");
 
 function virarCarta(elemento){
     const frente = elemento.querySelector(".frente");
@@ -55,8 +60,10 @@ function insereCartas(){
                 </div>
             </div>
             `;
-          }
+        }
 
+        id = setInterval(atualizaTempo, 1000);
+        
     }
 
 }
@@ -71,6 +78,8 @@ function inicializacao(){
     qtdCartas = 0;
     checaAcertos = 0;
     numJogadas = 0;
+    segundos = 0;
+    minutos = 0;
 }
 
 function checaCartas(){
@@ -106,8 +115,24 @@ function fimDeJogo(){
         jogarNovamente = prompt('Deseja jogar denovo?');
     }
     if (jogarNovamente === "sim"){
-       
+        
+        clearInterval(id);
         jogo();
+    }
+}
+
+function atualizaTempo() {
+    
+    if(segundos < 10){
+        segundos = '0'+segundos
+    }
+
+    divtempo.innerHTML = `${minutos}:${segundos}`
+    segundos++;
+
+    if (segundos%60 == 0){
+        minutos++;
+        segundos = 0;
     }
 }
 
