@@ -1,7 +1,7 @@
 let qtdCartas;
 let cartas = [];
 
-let contador = 0;
+let checaAcertos = 0;
 let clicados = [];
 
 let jogarNovamente = '';
@@ -40,9 +40,8 @@ function insereCartas(){
                 idCarta++;
             }
         }
-        cartas = cartas.sort(() => Math.random() - 0.5)
-        console.log(cartas);
-        //const elemento = document.querySelector('.jogo');
+        cartas = cartas.sort(() => Math.random() - 0.5);
+       
 
         for (let i = 0; i < qtdCartas; i++) {
             divjogo.innerHTML += `
@@ -62,24 +61,22 @@ function insereCartas(){
 }
 
 function inicializacao(){
+    divjogo.innerHTML = '';
     qtdCartas = 0;
     cartas = [];
-    contador = 0;
+    checaAcertos = 0;
     clicados = [];
     jogarNovamente = '';
 }
 
 function checaCartas(){
 
-    alert("entrou na checagem");
-
     let carta1 = clicados[0];
     let carta2 = clicados[1];
     
     if(carta1.innerHTML === carta2.innerHTML){
-        console.log('acertou miserávi!');
         clicados = [];
-        contador+=2;
+        checaAcertos++;
         
     }else{
         
@@ -88,22 +85,20 @@ function checaCartas(){
             clicados = [];
             virarCarta(carta1);
             clicados = [];
-        }, 500);
-        if(contador !== 0)
-            contador-=2;
+        }, 500);     
         
     }
     clicados = [];
-    console.log(contador);
+    console.log(checaAcertos);
     fimDeJogo();
 }
 
 function fimDeJogo(){
-    if(contador === qtdCartas){
+    if(checaAcertos === (qtdCartas/2)){
         jogarNovamente = prompt('Você venceu!!! Deseja jogar denovo?');
     }
     if (jogarNovamente === "sim"){
-        divjogo.innerHTML = '';
+       
         jogo();
     }
 }
