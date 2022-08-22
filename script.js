@@ -109,20 +109,32 @@ function checaCartas(){
 
 function fimDeJogo(){
     if(checaAcertos === (qtdCartas/2)){
-        let mensagem = `Você venceu em ${numJogadas} jogadas!!!`
+        
+        let tempo;
+        
+        if(minutos === 0){
+            tempo = `${segundos} segundos`
+        }else{
+            
+            tempo = `${minutos}:${segundos} minutos`
+        }
+        clearInterval(id);
+        
+        let mensagem = `Você venceu em ${numJogadas} 
+        jogadas com tempo de ${tempo} !!!`;
+
         alert(mensagem);
 
         jogarNovamente = prompt('Deseja jogar denovo?');
     }
     if (jogarNovamente === "sim"){
         
-        clearInterval(id);
         jogo();
     }
 }
 
 function atualizaTempo() {
-    
+
     if(segundos < 10){
         segundos = '0'+segundos
     }
