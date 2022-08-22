@@ -2,6 +2,7 @@ let qtdCartas;
 let cartas = [];
 
 let checaAcertos = 0;
+let numJogadas = 0;
 let clicados = [];
 
 let jogarNovamente = '';
@@ -62,11 +63,14 @@ function insereCartas(){
 
 function inicializacao(){
     divjogo.innerHTML = '';
-    qtdCartas = 0;
-    cartas = [];
-    checaAcertos = 0;
-    clicados = [];
     jogarNovamente = '';
+    
+    cartas = [];
+    clicados = [];
+    
+    qtdCartas = 0;
+    checaAcertos = 0;
+    numJogadas = 0;
 }
 
 function checaCartas(){
@@ -88,14 +92,18 @@ function checaCartas(){
         }, 500);     
         
     }
+    numJogadas += 2;
+
     clicados = [];
-    console.log(checaAcertos);
     fimDeJogo();
 }
 
 function fimDeJogo(){
     if(checaAcertos === (qtdCartas/2)){
-        jogarNovamente = prompt('Você venceu!!! Deseja jogar denovo?');
+        let mensagem = `Você venceu em ${numJogadas} jogadas!!!`
+        alert(mensagem);
+
+        jogarNovamente = prompt('Deseja jogar denovo?');
     }
     if (jogarNovamente === "sim"){
        

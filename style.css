@@ -8,6 +8,7 @@ body{
     background-color: #EEF9BF;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
@@ -92,4 +93,21 @@ img{
 
 .escondido{
     display: none;
+}
+
+@media (max-width: 870px){
+    .jogo {
+        width: 100%;
+    }
+    .titulo h1{
+        text-align: center;
+    }
+    
+}
+
+@media (max-width: 335px){
+    
+    .titulo h1{
+        font-size: 36px;
+    }
 }
