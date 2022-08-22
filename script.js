@@ -88,8 +88,11 @@ function checaCartas(){
     let carta2 = clicados[1];
     
     if(carta1.innerHTML === carta2.innerHTML){
+        carta1.removeAttribute("onclick");
+        carta2.removeAttribute("onclick");
+        
         clicados = [];
-        checaAcertos++;
+        checaAcertos++; 
         
     }else{
         
